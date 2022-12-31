@@ -1,0 +1,4 @@
+Song BPM:             160
+Song Length (secs):   300
+Song Offset (ms):     0
+Color Pattern:        G Y Y Y
