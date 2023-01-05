@@ -31,8 +31,6 @@ function findBPM() {
     console.log(mt.beats);
     }
 
-
-
     var data = fs.readFileSync(`${process.env.LOCALAPPDATA}\\GeometryDash\\${songID3}`);
     var context = new AudioContext();
     context.decodeAudioData(data, calcTempo);
