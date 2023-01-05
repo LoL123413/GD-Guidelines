@@ -9,8 +9,6 @@ const createWindow = () => {
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: true,
-      preload: path.join(app.getAppPath(), 'code.js')
     },
   });
 
