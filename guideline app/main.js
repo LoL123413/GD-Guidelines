@@ -9,6 +9,7 @@ const createWindow = () => {
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
+      preload: path.join(__dirname, 'code.js')
     },
   });
 
