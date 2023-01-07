@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/LoL123413/GD-Guidelines/issues"
   },
-  "homepage": "https://github.com/LoL123413/GD-Guidelines#readme"
+  "homepage": "https://github.com/LoL123413/GD-Guidelines#readme",
+  "dependencies": {
+    "get-mp3-duration": "^1.0.0"
+  }
 }

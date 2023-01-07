@@ -43,19 +43,10 @@ fs.readFile(gdSave, 'utf8', function (err, saveData) {
 // find bpm
 function sav() {
 
-
-
+    let LENGTH=bpm.duras
     bpm.findBPM()
-
-    
-
     console.log(`\n${new Date() - oldDate}ms elapsed`)
-
-    textfile = fs.readFileSync('settings.txt').toString()
-    json = fs.readFileSync('tempo.json')
-    textfile = textfile.replace("BPBPM", json, JSON.parse(json)[0])
-    console.log(textfile)
-    fs.writeFileSync('settings.txt', textfile)
+    console.log(LENGTH)
     // add bpm to text file
 
 
@@ -91,7 +82,9 @@ function sav() {
 
     console.log("Adding guidelines...")
     let config = fs.readFileSync('./settings.txt', 'utf8').split("\n").map(x => x.replace(/\s/g, "").split(":")[1])
-    let [BPM, songLength, offset, pattern] = config
+    let [offset, pattern] = config
+    let BPM = fs.readFileSync('./tempo.json').toString
+    let songLength = LENGTH
 
     pattern = pattern.toLowerCase().split("")
     let beatsPerBar = pattern.length

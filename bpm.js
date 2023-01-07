@@ -1,6 +1,7 @@
 var AudioContext = require("web-audio-api").AudioContext;
 var MusicTempo = require("music-tempo");
 const fs = require('fs')
+const getMP3Duration = require('get-mp3-duration')
 
 function findBPM() {
     let rawdata = fs.readFileSync('CCLocalLevels.json');
@@ -10,7 +11,11 @@ function findBPM() {
     let songID3 = songID2.replace("</i>", "")
     songID3 += ".mp3"
     console.log(songID3);
-    
+    const buffer = fs.readFileSync(process.env.HOME || process.env.USERPROFILE + `/AppData/Local/GeometryDash/${songID3}`)
+    const duration = getMP3Duration(buffer)
+    let duras = duration/1000
+
+        
 
     var calcTempo = function (buffer) {
     var audioData = [];
@@ -30,9 +35,10 @@ function findBPM() {
     jn = Math.round(mt.tempo)
     fs.writeFileSync('tempo.json', JSON.stringify(jn, null, 4))
     console.log(mt.beats);
+
     }
 
-
+    console.log(duras)
 
     var data = fs.readFileSync(`${process.env.LOCALAPPDATA}\\GeometryDash\\${songID3}`);
     var context = new AudioContext();
