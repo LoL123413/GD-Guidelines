@@ -14,6 +14,7 @@ function findBPM() {
     const buffer = fs.readFileSync(process.env.HOME || process.env.USERPROFILE + `/AppData/Local/GeometryDash/${songID3}`)
     const duration = getMP3Duration(buffer)
     let duras = duration/1000
+    fs.writeFileSync('./duration.json', JSON.stringify(duras, null, 4))
 
         
 
