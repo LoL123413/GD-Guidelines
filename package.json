@@ -18,5 +18,6 @@
   "homepage": "https://github.com/LoL123413/GD-Guidelines#readme",
   "dependencies": {
     "get-mp3-duration": "^1.0.0"
-  }
+  },
+  "devDependencies": {}
 }
