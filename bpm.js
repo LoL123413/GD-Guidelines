@@ -2,15 +2,16 @@ var AudioContext = require("web-audio-api").AudioContext;
 var MusicTempo = require("music-tempo");
 const fs = require('fs')
 
-let rawdata = fs.readFileSync('CCLocalLevels.json');
-let songID = JSON.parse(rawdata)[0];
-songID = songID.toString()
-let songID2 =  songID.replace("<k>k45</k><i>", "")
-let songID3 = songID2.replace("</i>", "")
-songID3 += ".mp3"
-console.log(songID3);
-
 function findBPM() {
+    let rawdata = fs.readFileSync('CCLocalLevels.json');
+    let songID = JSON.parse(rawdata)[0];
+    songID = songID.toString()
+    let songID2 =  songID.replace("<k>k45</k><i>", "")
+    let songID3 = songID2.replace("</i>", "")
+    songID3 += ".mp3"
+    console.log(songID3);
+    
+
     var calcTempo = function (buffer) {
     var audioData = [];
     // Take the average of the two channels
@@ -30,6 +31,8 @@ function findBPM() {
     fs.writeFileSync('tempo.json', JSON.stringify(jn, null, 4))
     console.log(mt.beats);
     }
+
+
 
     var data = fs.readFileSync(`${process.env.LOCALAPPDATA}\\GeometryDash\\${songID3}`);
     var context = new AudioContext();
