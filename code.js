@@ -1,8 +1,4 @@
 const fs = require('fs')
-const zlib = require('zlib')
-var AudioContext = require("web-audio-api").AudioContext;
-var MusicTempo = require("music-tempo");
-var parseString = require('xml2js').parseString;
 const Dec = require('./dec.js')
 let dec = new Dec()
 const bpm = require('./bpm')
@@ -80,26 +76,24 @@ function sav() {
 
     console.log("Adding guidelines...")
     let config = fs.readFileSync('./settings.txt', 'utf8').split("\n").map(x => x.replace(/\s/g, "").split(":")[1])
-    let [offset, pattern] = config
-    let BPM = fs.readFileSync('./tempo.json')
-    let songLength = fs.readFileSync('./duration.json')
-
-    console.log("BPM: " + BPM + "\nDuration: " + songLength)
+    let [BPM, songLength, offset, pattern] = config
+    BPM = parseInt(fs.readFileSync('./tempo.json'))
+    songLength = parseInt(fs.readFileSync('./duration.json'))
 
     pattern = pattern.toLowerCase().split("")
     let beatsPerBar = pattern.length
     let secondsPerBeat = Math.abs(60 / (+BPM || 100))
-
+    
     let beatCount = 0
     let secs = (+offset || 0) / 1000
-
+    
     while (secs <= (+songLength || 150)) {
         let beat = pattern[beatCount % beatsPerBar]
         if (colors[beat]) guidelines += `${Number(secs.toFixed(5))}~${colors[beat]}~`
         beatCount++
         secs += secondsPerBeat
     }
-
+    
     console.log("Saving level...")
     let newData = levelData.replace(",kA6,", `,kA14,${guidelines.slice(0, -1)},kA6,`)
     let newLevels = localLevels.replace(levelRegex, `$1${newData}</s>`)
