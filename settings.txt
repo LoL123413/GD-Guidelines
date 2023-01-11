@@ -1,4 +1,0 @@
-Song BPM:             200
-Song Length (secs):   199.262
-Song Offset (ms):     0
-Color Pattern:        G Y Y Y
