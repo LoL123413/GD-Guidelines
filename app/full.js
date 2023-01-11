@@ -94,10 +94,11 @@ function sav() {
     let guidelines = ""
 
     console.log("Adding guidelines...")
-    let config = fs.readFileSync('./settings.txt', 'utf8').split("\n").map(x => x.replace(/\s/g, "").split(":")[1])
-    let [BPM, songLength, offset, pattern] = config
-    BPM = parseInt(fs.readFileSync('./tempo.json'))
-    songLength = parseInt(fs.readFileSync('./duration.json'))
+    let offset = 0
+    let pattern = 'G Y Y Y'
+    let BPM = parseInt(fs.readFileSync('./tempo.json'))
+    let songLength = parseInt(fs.readFileSync('./duration.json'))
+
 
     pattern = pattern.toLowerCase().split("")
     let beatsPerBar = pattern.length
