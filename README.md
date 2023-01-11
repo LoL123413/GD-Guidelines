@@ -11,7 +11,7 @@ Step 1: download the repository as a ZIP file.
 
 Step 2: Extract it.
 
-Step 3: Run full-win.exe
+Step 3: Run GDGuidelineTool.exe
 ## Acknowledgements
 
 Thanks to @KontrollFreek for helping me out with a few things.
