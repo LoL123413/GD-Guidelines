@@ -14,6 +14,6 @@ Step 2: Extract it.
 Step 3: Run GDGuidelineTool.exe
 ## Acknowledgements
 
-Thanks to @KontrollFreek for helping me out with a few things.
+Thanks to @KontrollFreek for help
 
 Made by perko#6901
